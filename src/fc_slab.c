@@ -113,7 +113,7 @@ slab_cid(size_t size)
     imax = nctable;
     while (imax >= imin) {
         cid = (imin + imax) / 2;
-        if (size > ctable[cid].size) {
+        if (cid < nctable && size > ctable[cid].size) {
             imin = cid + 1;
         } else if (cid > SLABCLASS_MIN_ID && size <= ctable[cid - 1].size) {
             imax = cid - 1;
