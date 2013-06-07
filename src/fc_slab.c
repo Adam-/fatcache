@@ -470,7 +470,6 @@ slab_read_item(uint32_t sid, uint32_t addr)
     struct slabinfo *sinfo; /* slab info */
     int n;                  /* bytes read */
     off_t off;              /* offset to read from */
-    size_t size;            /* size to read */
     off_t aligned_off;      /* aligned offset to read from */
     size_t aligned_size;    /* aligned size to read */
 
@@ -479,7 +478,6 @@ slab_read_item(uint32_t sid, uint32_t addr)
 
     sinfo = &stable[sid];
     c = &ctable[sinfo->cid];
-    size = settings.slab_size;
     it = NULL;
 
     if (sinfo->mem) {

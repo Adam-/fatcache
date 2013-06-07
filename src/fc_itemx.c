@@ -127,12 +127,9 @@ itemx_init(void)
 void
 itemx_deinit(void)
 {
-    struct itemx *itx;
-
     while (!STAILQ_EMPTY(&free_itemxq)) {
         ASSERT(nfree_itemxq > 0);
 
-        itx = STAILQ_FIRST(&free_itemxq);
         nfree_itemxq--;
         STAILQ_REMOVE_HEAD(&free_itemxq, tqe);
     }
